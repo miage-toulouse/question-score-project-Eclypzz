@@ -15,7 +15,7 @@ public class ScoreCalculateurTest {
     public void setUp() throws Exception {
 
          questionAChoixMultiple = new QuestionAChoixMultiple("q1",new ArrayList<Integer>(Arrays.asList(2,3,5)));
-        scoreCalculateur = new ScoreCalculateur();
+         scoreCalculateur = new ScoreCalculateur();
     }
 
     @Test
@@ -36,5 +36,17 @@ public class ScoreCalculateurTest {
     public void calculeScoreMauvaises() {
         float  resScore = scoreCalculateur.calculeScore(new ArrayList<Integer>(Arrays.asList(1,4)),questionAChoixMultiple);
         assertEquals(0f,resScore,0.01f);
+    }
+
+    @Test
+    public void calculeScoreToutesReponses() {
+        float  resScore = scoreCalculateur.calculeScore(new ArrayList<Integer>(Arrays.asList(1,2,3,4,5)),questionAChoixMultiple);
+        assertEquals(0f,resScore,0.01f);
+    }
+
+    @Test
+    public void calculeScore1Mauvaise2BonnesReponses() {
+        float  resScore = scoreCalculateur.calculeScore(new ArrayList<Integer>(Arrays.asList(1,2,3)),questionAChoixMultiple);
+        assertEquals(16.66f,resScore,0.01f);
     }
 }
