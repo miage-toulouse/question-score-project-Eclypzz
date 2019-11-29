@@ -36,17 +36,13 @@ public class QuestionAChoixExclusifTest {
 
     @Test
     public void testGetScoreForIndiceMauvaiseReponse() {
-        //when : quand l'étudiant fournit l'indice de la bonne réponse
+        //when : quand l'étudiant fournit l'indice d'une' bonne réponse
         int indiceEtudiant = 3;
-        int indiceEtudiant2 = 1;
 
         // and : on demande le score de l'indice à la question
         float resScore = question.getScoreForIndice(indiceEtudiant);
-        float resScore2 = question.getScoreForIndice(indiceEtudiant2);
 
         //then : le score obtenu est 0
         assertEquals(0f,resScore,0.01f);
-        assertEquals(0f,resScore2,0.01f);
-
     }
 }
